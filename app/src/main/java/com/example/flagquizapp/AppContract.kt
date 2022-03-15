@@ -12,6 +12,6 @@ interface AppContract {
     }
 
     interface Model{
-        fun calculate(x: Int, y: Int)
+        fun retrieveData()
     }
 }
