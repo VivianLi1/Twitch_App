@@ -12,4 +12,9 @@ class MainActivityPresenter(private val view: AppContract.View) : AppContract.Pr
         view.calculate(value)
     }
 
+    override fun retrieveData() {
+        quiz.retrieveData()
+    }
+
+
 }

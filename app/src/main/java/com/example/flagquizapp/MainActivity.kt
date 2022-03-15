@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity(), AppContract.View {
         presenter = MainActivityPresenter(this)
 
         //presenter.calculate(5, 6)
+        presenter.retrieveData()
     }
 
     override fun calculate(value: Int) {

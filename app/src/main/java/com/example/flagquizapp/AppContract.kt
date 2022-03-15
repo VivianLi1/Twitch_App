@@ -9,6 +9,7 @@ interface AppContract {
     interface Presenter{
         fun calculate(x: Int, y: Int)
         fun updateCalculation(value: Int)
+        fun retrieveData()
     }
 
     interface Model{
