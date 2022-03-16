@@ -4,8 +4,7 @@ import com.example.rocketreserver.GetCountriesQuery
 
 interface AppContract {
 
-    interface View{
-        fun calculate(value: Int)
+    interface MainView{
     }
 
     interface QuizView{
@@ -13,18 +12,19 @@ interface AppContract {
     }
 
     interface MainPresenter{
-        fun calculate(x: Int, y: Int)
-        fun updateCalculation(value: Int)
     }
 
     interface QuizPresenter{
         fun retrieveData()
         fun generateQuiz(countries: List<GetCountriesQuery.Country>?)
         fun updateQuizView(answer: GetCountriesQuery.Country?, countries: MutableList<GetCountriesQuery.Country>?)
+        fun submitQuiz(userAnswer: String)
     }
 
     interface Model{
         fun retrieveData()
         fun generateQuiz(countries: List<GetCountriesQuery.Country>?)
+        fun submitQuiz(userAnswer: String)
+
     }
 }

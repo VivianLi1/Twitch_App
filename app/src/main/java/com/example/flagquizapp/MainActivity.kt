@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 
-class MainActivity : AppCompatActivity(), AppContract.View {
+class MainActivity : AppCompatActivity(), AppContract.MainView {
 
     //private lateinit var quizPresenter: AppContract.QuizPresenter
 
@@ -19,7 +19,4 @@ class MainActivity : AppCompatActivity(), AppContract.View {
         //quizPresenter.retrieveData()
     }
 
-    override fun calculate(value: Int) {
-        //Toast.makeText(this, value.toString(), Toast.LENGTH_SHORT).show()
-    }
 }

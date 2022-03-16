@@ -12,6 +12,8 @@ class QuizModel
     (private val quizPresenter: AppContract.QuizPresenter) :
     AppContract.Model{
 
+    private lateinit var answerText: String
+
     // retrieves Countries names and flags data
     override fun retrieveData() {
         runBlocking {
@@ -36,12 +38,20 @@ class QuizModel
 
         // selects 1 to be answer
         val answer = randomCountries?.random()
+        answerText = answer?.name ?: ""
 
         Log.i("Answer", answer!!.name)
         Log.i("Other", randomCountries.toString())
 
         quizPresenter.updateQuizView(answer, randomCountries)
+    }
 
+    override fun submitQuiz(userAnswer: String) {
+        if(userAnswer == answerText){
+            Log.i("Correct", "true")
+        }else{
+            Log.i("Correct", "false")
+        }
     }
 
 }

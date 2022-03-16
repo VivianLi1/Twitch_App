@@ -29,8 +29,6 @@ class QuizFragment : Fragment(), AppContract.QuizView {
         super.onCreate(savedInstanceState)
 
         quizPresenter = QuizPresenter(this)
-
-        // retrieves countries data
     }
 
     override fun onCreateView(
@@ -40,7 +38,27 @@ class QuizFragment : Fragment(), AppContract.QuizView {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_quiz, container, false)
         mView = view
+
+        // retrieves countries data
         quizPresenter.retrieveData()
+
+        val button1 = mView.findViewById<Button>(R.id.option1)
+        val button2 = mView.findViewById<Button>(R.id.option2)
+        val button3 = mView.findViewById<Button>(R.id.option3)
+        val button4 = mView.findViewById<Button>(R.id.option4)
+
+        button1.setOnClickListener {
+            quizPresenter.submitQuiz(button1.text as String)
+        }
+        button2.setOnClickListener {
+            quizPresenter.submitQuiz(button2.text as String)
+        }
+        button3.setOnClickListener {
+            quizPresenter.submitQuiz(button3.text as String)
+        }
+        button4.setOnClickListener {
+            quizPresenter.submitQuiz(button4.text as String)
+        }
 
         return view
     }
@@ -49,15 +67,18 @@ class QuizFragment : Fragment(), AppContract.QuizView {
         answer: GetCountriesQuery.Country?,
         countries: MutableList<GetCountriesQuery.Country>?
     ) {
+        // set flag texview to country's flag emoji
         val flagText = mView.findViewById<TextView>(R.id.flagEmoji)
         flagText.text = answer?.emoji
 
+        // get list of option buttons
         val buttonList = listOf<Button>(
             mView.findViewById(R.id.option1),
             mView.findViewById(R.id.option2),
             mView.findViewById(R.id.option3),
             mView.findViewById(R.id.option4))
 
+        // randomly assign country names to buttons
         for(i in 1..4) {
             val randomCountry = countries?.random()
             countries?.removeIf{c -> c == randomCountry}
@@ -65,4 +86,6 @@ class QuizFragment : Fragment(), AppContract.QuizView {
             buttonList[i-1].text = randomCountry?.name
         }
     }
+
+
 }

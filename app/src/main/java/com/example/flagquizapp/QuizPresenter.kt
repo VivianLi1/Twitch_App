@@ -21,5 +21,9 @@ class QuizPresenter(private val view: AppContract.QuizView): AppContract.QuizPre
         view.updateQuizView(answer, countries)
     }
 
+    override fun submitQuiz(userAnswer: String) {
+        quiz.submitQuiz(userAnswer)
+    }
+
 
 }
