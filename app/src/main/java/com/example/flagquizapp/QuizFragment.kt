@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import com.example.rocketreserver.GetCountriesQuery
+import com.google.android.material.snackbar.Snackbar
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -85,6 +86,11 @@ class QuizFragment : Fragment(), AppContract.QuizView {
 
             buttonList[i-1].text = randomCountry?.name
         }
+    }
+
+    override fun displayFeedback(message: String) {
+        Snackbar.make(mView, message, Snackbar.LENGTH_SHORT)
+            .show()
     }
 
 

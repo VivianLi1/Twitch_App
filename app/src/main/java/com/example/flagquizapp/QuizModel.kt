@@ -47,11 +47,8 @@ class QuizModel
     }
 
     override fun submitQuiz(userAnswer: String) {
-        if(userAnswer == answerText){
-            Log.i("Correct", "true")
-        }else{
-            Log.i("Correct", "false")
-        }
+        quizPresenter.displayFeedback(userAnswer == answerText, answerText)
+
     }
 
 }

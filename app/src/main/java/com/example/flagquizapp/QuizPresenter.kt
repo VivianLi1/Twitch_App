@@ -25,5 +25,13 @@ class QuizPresenter(private val view: AppContract.QuizView): AppContract.QuizPre
         quiz.submitQuiz(userAnswer)
     }
 
+    override fun displayFeedback(correct: Boolean, answer: String) {
+        if (correct) {
+            view.displayFeedback("Correct!")
+        }else{
+            view.displayFeedback("Incorrect! The answer was ${answer}.")
+        }
+    }
+
 
 }
