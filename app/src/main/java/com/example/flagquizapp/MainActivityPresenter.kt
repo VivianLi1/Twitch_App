@@ -1,8 +1,8 @@
 package com.example.flagquizapp
 
-class MainActivityPresenter(private val view: AppContract.View) : AppContract.Presenter {
+import com.example.rocketreserver.GetCountriesQuery
 
-    private val quiz = QuizModel(this)
+class MainActivityPresenter(private val view: AppContract.View) : AppContract.MainPresenter {
 
     override fun calculate(x: Int, y: Int) {
         //quiz.calculate(x, y)
@@ -11,10 +11,5 @@ class MainActivityPresenter(private val view: AppContract.View) : AppContract.Pr
     override fun updateCalculation(value: Int) {
         view.calculate(value)
     }
-
-    override fun retrieveData() {
-        quiz.retrieveData()
-    }
-
 
 }

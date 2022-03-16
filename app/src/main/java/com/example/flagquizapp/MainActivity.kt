@@ -7,16 +7,16 @@ import android.widget.Toast
 
 class MainActivity : AppCompatActivity(), AppContract.View {
 
-    private lateinit var presenter: AppContract.Presenter
+    //private lateinit var quizPresenter: AppContract.QuizPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        presenter = MainActivityPresenter(this)
+        //quizPresenter = QuizPresenter(this)
 
-        //presenter.calculate(5, 6)
-        presenter.retrieveData()
+        // retrieves countries data
+        //quizPresenter.retrieveData()
     }
 
     override fun calculate(value: Int) {
