@@ -1,8 +1,13 @@
 package com.example.flagquizapp
 
+import android.content.Context
+import android.content.SharedPreferences
 import com.example.rocketreserver.GetCountriesQuery
 
 class QuizPresenter(private val view: AppContract.QuizView): AppContract.QuizPresenter {
+
+    private val INCREASE = "increase"
+    private val RESET = "reset"
 
     private val quiz = QuizModel(this)
 
@@ -23,6 +28,7 @@ class QuizPresenter(private val view: AppContract.QuizView): AppContract.QuizPre
 
     override fun submitQuiz(userAnswer: String) {
         quiz.submitQuiz(userAnswer)
+        retrieveData()
     }
 
     override fun displayFeedback(correct: Boolean, answer: String) {
@@ -33,5 +39,16 @@ class QuizPresenter(private val view: AppContract.QuizView): AppContract.QuizPre
         }
     }
 
+    override fun getScore() {
+        quiz.getScore(view.thisContext())
+    }
+
+    override fun displayUpdatedScore(score: String?){
+        view.updateScore(score)
+    }
+
+    override fun updateScore(){
+        quiz.updateScore(view.thisContext(), INCREASE)
+    }
 
 }

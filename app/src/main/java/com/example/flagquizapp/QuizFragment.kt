@@ -1,5 +1,6 @@
 package com.example.flagquizapp
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -21,7 +22,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class QuizFragment : Fragment(), AppContract.QuizView {
-    // TODO: Rename and change types of parameters
+
 
     private lateinit var mView: View
     private lateinit var quizPresenter: AppContract.QuizPresenter
@@ -42,6 +43,8 @@ class QuizFragment : Fragment(), AppContract.QuizView {
 
         // retrieves countries data
         quizPresenter.retrieveData()
+        // retrieves quiz score
+        quizPresenter.getScore()
 
         val button1 = mView.findViewById<Button>(R.id.option1)
         val button2 = mView.findViewById<Button>(R.id.option2)
@@ -93,5 +96,12 @@ class QuizFragment : Fragment(), AppContract.QuizView {
             .show()
     }
 
+    override fun updateScore(newScore: String?) {
+        val score = mView.findViewById<TextView>(R.id.score)
+        score.text = newScore
+    }
 
+    override fun thisContext(): Context {
+        return super.requireContext()
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.flagquizapp
 
+import android.content.Context
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
@@ -13,6 +14,30 @@ class QuizModel
     AppContract.Model{
 
     private lateinit var answerText: String
+    private val SHARED_PREF = "quizScorePref"
+
+    override fun updateScore(context: Context, option: String){
+        val sharedPref = context.getSharedPreferences(SHARED_PREF, Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+
+        editor.apply {
+            when(option){
+                "increase" -> putString("score", (sharedPref.getString("score", "0")?.toInt()?.plus(1)).toString())
+                "reset" -> putString("score", "0")
+            }
+
+            apply()
+        }
+
+        quizPresenter.displayUpdatedScore(sharedPref.getString("score", "0"))
+    }
+
+    override fun getScore(context: Context): String?{
+        val sharedPref = context.getSharedPreferences(SHARED_PREF, Context.MODE_PRIVATE)
+        quizPresenter.displayUpdatedScore(sharedPref.getString("score", "0"))
+
+        return sharedPref.getString("score", "0")
+    }
 
     // retrieves Countries names and flags data
     override fun retrieveData() {
@@ -48,7 +73,9 @@ class QuizModel
 
     override fun submitQuiz(userAnswer: String) {
         quizPresenter.displayFeedback(userAnswer == answerText, answerText)
-
+        if(userAnswer == answerText){
+            quizPresenter.updateScore()
+        }
     }
 
 }
