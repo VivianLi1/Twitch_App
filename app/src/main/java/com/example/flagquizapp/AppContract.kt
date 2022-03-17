@@ -34,7 +34,7 @@ interface AppContract {
         fun retrieveData()
         fun generateQuiz(countries: List<GetCountriesQuery.Country>?)
         fun submitQuiz(userAnswer: String)
-        fun updateScore(context: Context, scoreVal: String)
+        fun updateScore(context: Context, option: String)
         fun getScore(context: Context): String?
     }
 }
