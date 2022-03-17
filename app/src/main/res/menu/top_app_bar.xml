@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/quiz"
+        android:id="@+id/quizItem"
         android:contentDescription="Quiz"
         android:enabled="true"
         android:icon="@android:drawable/ic_menu_compass"
@@ -12,10 +12,10 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/points"
-        android:title="Points"
-        android:icon="@android:drawable/ic_menu_edit"
-        android:contentDescription="Points"
+        android:id="@+id/settingsItem"
+        android:title="Settings"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:contentDescription="Settings"
         app:showAsAction="ifRoom"
         />
 
