@@ -1,5 +1,6 @@
 package com.example.flagquizapp
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -45,5 +46,6 @@ open class MainActivity : AppCompatActivity(), AppContract.MainView {
                 super.onOptionsItemSelected(item)
         }
     }
+
 
 }

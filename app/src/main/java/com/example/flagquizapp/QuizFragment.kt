@@ -11,16 +11,6 @@ import android.widget.TextView
 import com.example.rocketreserver.GetCountriesQuery
 import com.google.android.material.snackbar.Snackbar
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [QuizFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class QuizFragment : Fragment(), AppContract.QuizView {
 
 

@@ -7,6 +7,7 @@ import com.example.rocketreserver.GetCountriesQuery
 interface AppContract {
 
     interface MainView{
+
     }
 
     interface QuizView{
@@ -36,5 +37,21 @@ interface AppContract {
         fun submitQuiz(userAnswer: String)
         fun updateScore(context: Context, option: String)
         fun getScore(context: Context): String?
+    }
+
+    interface SettingsPresenter{
+        fun displayScore(score: String?)
+        fun getScore()
+    }
+
+    interface  SettingsView{
+        fun displayScore(newScore: String?)
+        fun thisContext(): Context
+    }
+
+    interface  SettingsModel{
+        fun getScore(context: Context)
+        fun getLightDarkMode(context: Context)
+
     }
 }
