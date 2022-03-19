@@ -15,10 +15,6 @@ class SettingsModel(val settingsPresenter: SettingsPresenter): AppContract.Setti
         //return sharedPref.getString("score", "0")
     }
 
-    override fun getLightDarkMode(context: Context) {
-        TODO("Not yet implemented")
-    }
-
     override fun resetScore(context: Context) {
         val sharedPref = context.getSharedPreferences(SHARED_PREF, Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
@@ -28,5 +24,14 @@ class SettingsModel(val settingsPresenter: SettingsPresenter): AppContract.Setti
         }
 
         settingsPresenter.displayScore(sharedPref.getString("score", "0"))
+    }
+
+    override fun setDarkMode(context: Context, darkMode: Boolean) {
+        val sharedPref = context.getSharedPreferences(SHARED_PREF, Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.apply {
+            putBoolean("darkMode", darkMode)
+            apply()
+        }
     }
 }

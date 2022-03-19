@@ -28,8 +28,10 @@ class SettingsActivity : MainActivity(), AppContract.SettingsView {
         lightDarkToggle.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                settingsPresenter.setDarkMode(true)
             }else{
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                settingsPresenter.setDarkMode(false)
             }
         }
     }

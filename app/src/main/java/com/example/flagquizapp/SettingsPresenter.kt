@@ -15,4 +15,8 @@ class SettingsPresenter(val view: AppContract.SettingsView): AppContract.Setting
     override fun resetScore() {
         settings.resetScore(view.thisContext())
     }
+
+    override fun setDarkMode(darkMode: Boolean) {
+        settings.setDarkMode(view.thisContext(), darkMode)
+    }
 }

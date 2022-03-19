@@ -7,13 +7,20 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Switch
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 
 open class MainActivity : AppCompatActivity(), AppContract.MainView {
+
+    lateinit var mainPresenter: MainActivityPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        mainPresenter = MainActivityPresenter(this)
+        mainPresenter.setLightDarkMode()
 
     }
 
@@ -47,5 +54,16 @@ open class MainActivity : AppCompatActivity(), AppContract.MainView {
         }
     }
 
+    override fun thisContext(): Context {
+        return applicationContext
+    }
+
+    override fun setLightDarkMode(darkMode: Boolean){
+        if(darkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+    }
 
 }

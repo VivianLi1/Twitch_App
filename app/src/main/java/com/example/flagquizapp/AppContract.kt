@@ -7,7 +7,8 @@ import com.example.rocketreserver.GetCountriesQuery
 interface AppContract {
 
     interface MainView{
-
+        fun thisContext(): Context
+        fun setLightDarkMode(darkMode: Boolean)
     }
 
     interface QuizView{
@@ -18,6 +19,7 @@ interface AppContract {
     }
 
     interface MainPresenter{
+        fun setLightDarkMode()
     }
 
     interface QuizPresenter{
@@ -43,6 +45,7 @@ interface AppContract {
         fun displayScore(score: String?)
         fun getScore()
         fun resetScore()
+        fun setDarkMode(darkMode: Boolean)
     }
 
     interface  SettingsView{
@@ -52,7 +55,7 @@ interface AppContract {
 
     interface  SettingsModel{
         fun getScore(context: Context)
-        fun getLightDarkMode(context: Context)
         fun resetScore(context: Context)
+        fun setDarkMode(context: Context, darkMode: Boolean)
     }
 }
