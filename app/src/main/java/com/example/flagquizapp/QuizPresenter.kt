@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.example.rocketreserver.GetCountriesQuery
 
-class QuizPresenter(private val view: AppContract.QuizView): AppContract.QuizPresenter {
+class QuizPresenter(private val view: AppContract.QuizView): AppContract.QuizPresenter{
 
     private val INCREASE = "increase"
     private val RESET = "reset"
@@ -47,8 +47,8 @@ class QuizPresenter(private val view: AppContract.QuizView): AppContract.QuizPre
         view.updateScore(score)
     }
 
-    override fun updateScore(){
-        quiz.updateScore(view.thisContext(), INCREASE)
+    override fun incScore(){
+        quiz.incScore(view.thisContext())
     }
 
 }

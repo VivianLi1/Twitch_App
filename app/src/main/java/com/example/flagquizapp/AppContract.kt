@@ -28,20 +28,21 @@ interface AppContract {
         fun displayFeedback(correct: Boolean, answer: String)
         fun getScore()
         fun displayUpdatedScore(score: String?)
-        fun updateScore()
+        fun incScore()
     }
 
-    interface Model{
+    interface QuizModel{
         fun retrieveData()
         fun generateQuiz(countries: List<GetCountriesQuery.Country>?)
         fun submitQuiz(userAnswer: String)
-        fun updateScore(context: Context, option: String)
+        fun incScore(context: Context)
         fun getScore(context: Context): String?
     }
 
     interface SettingsPresenter{
         fun displayScore(score: String?)
         fun getScore()
+        fun resetScore()
     }
 
     interface  SettingsView{
@@ -52,6 +53,6 @@ interface AppContract {
     interface  SettingsModel{
         fun getScore(context: Context)
         fun getLightDarkMode(context: Context)
-
+        fun resetScore(context: Context)
     }
 }

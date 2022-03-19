@@ -5,7 +5,6 @@ class SettingsPresenter(val view: AppContract.SettingsView): AppContract.Setting
     val settings = SettingsModel(this)
 
     override fun getScore() {
-
         settings.getScore(view.thisContext())
     }
 
@@ -13,4 +12,7 @@ class SettingsPresenter(val view: AppContract.SettingsView): AppContract.Setting
         view.displayScore(score)
     }
 
+    override fun resetScore() {
+        settings.resetScore(view.thisContext())
+    }
 }

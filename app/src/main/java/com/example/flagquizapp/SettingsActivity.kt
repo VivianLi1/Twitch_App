@@ -4,7 +4,8 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
-import android.widget.TextView
+import android.widget.*
+import androidx.appcompat.app.AppCompatDelegate
 
 class SettingsActivity : MainActivity(), AppContract.SettingsView {
 
@@ -16,6 +17,21 @@ class SettingsActivity : MainActivity(), AppContract.SettingsView {
 
         settingsPresenter = SettingsPresenter(this)
         settingsPresenter.getScore()
+
+        val resetButton = findViewById<Button>(R.id.resetButton)
+        resetButton.setOnClickListener {
+            settingsPresenter.resetScore()
+        }
+
+        val lightDarkToggle = findViewById<Switch>(R.id.lightDarkToggle)
+
+        lightDarkToggle.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }else{
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
     }
 
     // displays score on view

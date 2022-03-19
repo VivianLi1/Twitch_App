@@ -11,21 +11,17 @@ import kotlinx.coroutines.runBlocking
 
 class QuizModel
     (private val quizPresenter: AppContract.QuizPresenter) :
-    AppContract.Model{
+    AppContract.QuizModel{
 
     private lateinit var answerText: String
     private val SHARED_PREF = "quizScorePref"
 
-    override fun updateScore(context: Context, option: String){
+    override fun incScore(context: Context){
         val sharedPref = context.getSharedPreferences(SHARED_PREF, Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
 
         editor.apply {
-            when(option){
-                "increase" -> putString("score", (sharedPref.getString("score", "0")?.toInt()?.plus(1)).toString())
-                "reset" -> putString("score", "0")
-            }
-
+            putString("score", (sharedPref.getString("score", "0")?.toInt()?.plus(1)).toString())
             apply()
         }
 
@@ -74,7 +70,7 @@ class QuizModel
     override fun submitQuiz(userAnswer: String) {
         quizPresenter.displayFeedback(userAnswer == answerText, answerText)
         if(userAnswer == answerText){
-            quizPresenter.updateScore()
+            quizPresenter.incScore()
         }
     }
 
