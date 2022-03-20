@@ -17,9 +17,10 @@ class SettingsActivity : MainActivity(), AppContract.SettingsView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
+        //initialize presenter
         settingsPresenter = SettingsPresenter(this)
-        settingsPresenter.getScore()
 
+        //add listener to reset score button
         val resetButton = findViewById<Button>(R.id.resetButton)
         resetButton.setOnClickListener {
             confirmResetDialog()
@@ -27,6 +28,7 @@ class SettingsActivity : MainActivity(), AppContract.SettingsView {
 
         val lightDarkToggle = findViewById<Switch>(R.id.lightDarkToggle)
 
+        // if light dark toggle enable, set dark mode
         lightDarkToggle.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
@@ -37,11 +39,16 @@ class SettingsActivity : MainActivity(), AppContract.SettingsView {
             }
         }
 
+        //set prize button listener -> go to prize activity
         val prizeButton = findViewById<Button>(R.id.prizeButton)
+        prizeButton.isEnabled = false
         prizeButton.setOnClickListener {
             val intent = Intent(this, PrizeActivity::class.java)
             startActivity(intent)
         }
+
+        settingsPresenter.getScore()
+        settingsPresenter.isPrizeEnabled(10)
     }
 
     // displays score on view
@@ -55,7 +62,8 @@ class SettingsActivity : MainActivity(), AppContract.SettingsView {
         return applicationContext
     }
 
-    fun confirmResetDialog(){
+    // dialog to confirm score reset
+    private fun confirmResetDialog(){
         MaterialAlertDialogBuilder(this)
             .setTitle(R.string.reset_dialog_title)
             .setNeutralButton(resources.getString(R.string.cancel)){_, _ ->
@@ -65,5 +73,10 @@ class SettingsActivity : MainActivity(), AppContract.SettingsView {
                 settingsPresenter.resetScore()
             }
             .show()
+    }
+
+    override fun enablePrizeButton(enable: Boolean){
+        val prizeButton = findViewById<Button>(R.id.prizeButton)
+        prizeButton.isEnabled = enable
     }
 }

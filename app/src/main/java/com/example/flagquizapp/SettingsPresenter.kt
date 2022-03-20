@@ -19,4 +19,12 @@ class SettingsPresenter(val view: AppContract.SettingsView): AppContract.Setting
     override fun setDarkMode(darkMode: Boolean) {
         settings.setDarkMode(view.thisContext(), darkMode)
     }
+
+    override fun isPrizeEnabled(requiredScore: Int) {
+        settings.isPrizeEnabled(view.thisContext(), requiredScore)
+    }
+
+    override fun enablePrize(enable: Boolean) {
+        view.enablePrizeButton(enable)
+    }
 }

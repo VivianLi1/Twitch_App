@@ -46,16 +46,20 @@ interface AppContract {
         fun getScore()
         fun resetScore()
         fun setDarkMode(darkMode: Boolean)
+        fun isPrizeEnabled(requiredScore: Int)
+        fun enablePrize(enable: Boolean)
     }
 
-    interface  SettingsView{
+    interface SettingsView{
         fun displayScore(newScore: String?)
         fun thisContext(): Context
+        fun enablePrizeButton(enable: Boolean)
     }
 
-    interface  SettingsModel{
+    interface SettingsModel{
         fun getScore(context: Context)
         fun resetScore(context: Context)
         fun setDarkMode(context: Context, darkMode: Boolean)
+        fun isPrizeEnabled(context: Context, requiredScore: Int)
     }
 }
