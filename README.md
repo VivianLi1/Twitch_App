@@ -36,11 +36,17 @@ Prize Activity
 
 This application utilizes Model View Presenter (MVP) architectural pattern. Each view (Quiz, Main, Settings) had respective presenters that interacted with the models if necessary. These models would in turn send data/changes to the presenters that could change the view if necessary.
 
+![App Architecture](/screenshots/MVP.jpg) 
+
 ## Screenshots and User Flow
 
 The user is first presented with app bar and the quiz view. The user can get straight into the game: choose the correct country name for the flag displayed. Once the user chooses an answer, a snackbar will be displayed indicating if the user answer is correct. If it is the score will increment. Otherwise, the snackbar will notify the user of the correct answer. 
 
+![Main/Quiz View](/screenshots/quiz.png)
+
 The app bar allows the user to go to the settings page. There is an indicator that tells the user that they must reach a certain score in order to unlock the prize page. Additionally, there is a reset button that allows users to reset their score (must be confirmed via a dialog). There is also a toggle that can switch between light and dark mode.
+
+![Settings View](/screenshots/settings.png)
 
 ## Additional technologies used
 
