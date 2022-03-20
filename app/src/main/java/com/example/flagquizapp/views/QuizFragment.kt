@@ -1,4 +1,4 @@
-package com.example.flagquizapp
+package com.example.flagquizapp.views
 
 import android.content.Context
 import android.os.Bundle
@@ -8,6 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import com.example.flagquizapp.AppContract
+import com.example.flagquizapp.presenters.QuizPresenter
+import com.example.flagquizapp.R
 import com.example.rocketreserver.GetCountriesQuery
 import com.google.android.material.snackbar.Snackbar
 

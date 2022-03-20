@@ -1,12 +1,13 @@
-package com.example.flagquizapp
+package com.example.flagquizapp.views
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
 import android.widget.*
 import androidx.appcompat.app.AppCompatDelegate
+import com.example.flagquizapp.AppContract
+import com.example.flagquizapp.R
+import com.example.flagquizapp.presenters.SettingsPresenter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class SettingsActivity : MainActivity(), AppContract.SettingsView {
@@ -66,10 +67,10 @@ class SettingsActivity : MainActivity(), AppContract.SettingsView {
     private fun confirmResetDialog(){
         MaterialAlertDialogBuilder(this)
             .setTitle(R.string.reset_dialog_title)
-            .setNeutralButton(resources.getString(R.string.cancel)){_, _ ->
+            .setNeutralButton(resources.getString(R.string.cancel)){ _, _ ->
 
             }
-            .setPositiveButton(resources.getString(R.string.confirm)){_, _ ->
+            .setPositiveButton(resources.getString(R.string.confirm)){ _, _ ->
                 settingsPresenter.resetScore()
             }
             .show()

@@ -1,7 +1,7 @@
-package com.example.flagquizapp
+package com.example.flagquizapp.presenters
 
 import android.content.Context
-import com.example.rocketreserver.GetCountriesQuery
+import com.example.flagquizapp.AppContract
 
 class MainActivityPresenter(private val view: AppContract.MainView) : AppContract.MainPresenter {
 

@@ -12,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FlagQuizApp">
         <activity
-            android:name=".PrizeActivity"
+            android:name=".views.PrizeActivity"
             android:exported="false" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".views.SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".views.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.example.flagquizapp
+package com.example.flagquizapp.views
 
 import android.content.Context
 import android.content.Intent
@@ -7,9 +7,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Switch
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import com.example.flagquizapp.AppContract
+import com.example.flagquizapp.presenters.MainActivityPresenter
+import com.example.flagquizapp.R
 
 open class MainActivity : AppCompatActivity(), AppContract.MainView {
 

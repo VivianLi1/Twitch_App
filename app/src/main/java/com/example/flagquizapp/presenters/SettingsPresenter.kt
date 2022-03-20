@@ -1,4 +1,7 @@
-package com.example.flagquizapp
+package com.example.flagquizapp.presenters
+
+import com.example.flagquizapp.AppContract
+import com.example.flagquizapp.models.SettingsModel
 
 class SettingsPresenter(val view: AppContract.SettingsView): AppContract.SettingsPresenter {
 

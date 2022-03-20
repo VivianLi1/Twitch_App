@@ -1,17 +1,17 @@
-package com.example.flagquizapp
+package com.example.flagquizapp.models
 
 import android.content.Context
-import android.os.Build
 import android.util.Log
-import androidx.annotation.RequiresApi
 import com.apollographql.apollo3.exception.ApolloException
+import com.example.flagquizapp.AppContract
+import com.example.flagquizapp.apolloClient
 import com.example.rocketreserver.GetCountriesQuery
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 class QuizModel
     (private val quizPresenter: AppContract.QuizPresenter) :
-    AppContract.QuizModel{
+    AppContract.QuizModel {
 
     private lateinit var answerText: String
     private val SHARED_PREF = "quizScorePref"

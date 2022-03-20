@@ -1,7 +1,7 @@
-package com.example.flagquizapp
+package com.example.flagquizapp.views
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.flagquizapp.R
 import nl.dionsegijn.konfetti.core.Party
 import nl.dionsegijn.konfetti.core.Position
 import nl.dionsegijn.konfetti.core.emitter.Emitter

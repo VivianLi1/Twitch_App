@@ -1,7 +1,9 @@
-package com.example.flagquizapp
+package com.example.flagquizapp.models
 
 import android.content.Context
 import android.util.Log
+import com.example.flagquizapp.AppContract
+import com.example.flagquizapp.presenters.SettingsPresenter
 
 class SettingsModel(val settingsPresenter: SettingsPresenter): AppContract.SettingsModel {
 
