@@ -50,6 +50,9 @@ dependencies {
     // Fragments Implementation
     implementation("androidx.fragment:fragment-ktx:1.4.1")
 
+    //Konfetti library
+    implementation 'nl.dionsegijn:konfetti-xml:2.0.2'
+
 }
 
 apollo {

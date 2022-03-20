@@ -1,6 +1,7 @@
 package com.example.flagquizapp
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -35,6 +36,12 @@ class SettingsActivity : MainActivity(), AppContract.SettingsView {
                 settingsPresenter.setDarkMode(false)
             }
         }
+
+        val prizeButton = findViewById<Button>(R.id.prizeButton)
+        prizeButton.setOnClickListener {
+            val intent = Intent(this, PrizeActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     // displays score on view
@@ -51,10 +58,10 @@ class SettingsActivity : MainActivity(), AppContract.SettingsView {
     fun confirmResetDialog(){
         MaterialAlertDialogBuilder(this)
             .setTitle(R.string.reset_dialog_title)
-            .setNeutralButton(resources.getString(R.string.cancel)){dialog, which ->
+            .setNeutralButton(resources.getString(R.string.cancel)){_, _ ->
 
             }
-            .setPositiveButton(resources.getString(R.string.confirm)){dialog, which ->
+            .setPositiveButton(resources.getString(R.string.confirm)){_, _ ->
                 settingsPresenter.resetScore()
             }
             .show()
