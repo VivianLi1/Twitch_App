@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.widget.*
 import androidx.appcompat.app.AppCompatDelegate
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class SettingsActivity : MainActivity(), AppContract.SettingsView {
 
@@ -20,7 +21,7 @@ class SettingsActivity : MainActivity(), AppContract.SettingsView {
 
         val resetButton = findViewById<Button>(R.id.resetButton)
         resetButton.setOnClickListener {
-            settingsPresenter.resetScore()
+            confirmResetDialog()
         }
 
         val lightDarkToggle = findViewById<Switch>(R.id.lightDarkToggle)
@@ -47,5 +48,15 @@ class SettingsActivity : MainActivity(), AppContract.SettingsView {
         return applicationContext
     }
 
+    fun confirmResetDialog(){
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.reset_dialog_title)
+            .setNeutralButton(resources.getString(R.string.cancel)){dialog, which ->
 
+            }
+            .setPositiveButton(resources.getString(R.string.confirm)){dialog, which ->
+                settingsPresenter.resetScore()
+            }
+            .show()
+    }
 }

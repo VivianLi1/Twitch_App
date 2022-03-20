@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">FlagQuizApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">Flagmoji Quiz</string>
+    <string name="reset_dialog_title">Reset score?</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
 </resources>
